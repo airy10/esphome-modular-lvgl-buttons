@@ -78,7 +78,7 @@ esphome run my-panel.yaml
 | [`text_sensor`](ui/text_sensor/README.md) | ✅ | ✅ | — | Display any string state or attribute |
 | [`button`](ui/button/README.md) | ✅ | ✅ | — | Momentary press — works with `script.*`, `scene.*` too |
 | [`climate`](ui/climate/README.md) | ✅ | ✅ | ✅ | Arc setpoint, mode + fan + swing dropdowns, capability auto-detected |
-| `cover` | 🔜 | 🔜 | 🔜 | Blinds, shutters, garage doors |
+| [`cover`](ui/cover/README.md) | ✅ | ✅ | ✅ | Blinds, shutters, gates, garage doors — statefull/stateless auto-detected |
 | `fan` | 🔜 | 🔜 | 🔜 | — |
 | `number` | 🔜 | 🔜 | 🔜 | Setpoints, PID targets |
 | `select` | 🔜 | 🔜 | 🔜 | Operating modes, option lists |
