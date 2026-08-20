@@ -8,7 +8,15 @@
 external_components:
   # - source: github://willumpie82/esphome@dev
     # components: [mipi_dsi]
-  - source: github://kvj/esphome@jd9365_gsl3680
+  # gsl3680 touch driver: use jtenniswood/espcontrol's maintained copy.
+  # The old kvj fork calls mark_failed("...") which no longer compiles against
+  # current ESPHome (it now needs a const LogString* via LOG_STR). Pinned to a
+  # commit so everyone building from this repo gets the same working version.
+  - source:
+      type: git
+      url: https://github.com/jtenniswood/espcontrol
+      ref: 62569118240d858194e94db256831ae02a9df8dc
+      path: components
     components: [gsl3680]
 
 substitutions:
