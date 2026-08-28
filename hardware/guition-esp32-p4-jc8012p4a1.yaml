@@ -5,20 +5,6 @@
 # http://pan.jczn1688.com/directlink/1/HMI%20display/JC8012P4A1C_I_W_Y.zip
 #
 
-external_components:
-  # - source: github://willumpie82/esphome@dev
-    # components: [mipi_dsi]
-  # gsl3680 touch driver: use jtenniswood/espcontrol's maintained copy.
-  # The old kvj fork calls mark_failed("...") which no longer compiles against
-  # current ESPHome (it now needs a const LogString* via LOG_STR). Pinned to a
-  # commit so everyone building from this repo gets the same working version.
-  - source:
-      type: git
-      url: https://github.com/jtenniswood/espcontrol
-      ref: 62569118240d858194e94db256831ae02a9df8dc
-      path: components
-    components: [gsl3680]
-
 substitutions:
   # Screen Size (portrait orientation - 10.1" display)
   # Swapped automatically for 90/270 rotation
@@ -120,14 +106,11 @@ i2c_device:
 # Touchscreen
 # -------------------------------------------
 touchscreen:
-  - platform: gsl3680
+  - platform: gsl3670
     id: my_touchscreen
-    reset_pin: GPIO22
-    interrupt_pin: GPIO21
-    transform:
-      swap_xy: false
-      mirror_x: true
-      mirror_y: false
+    model: GUITION-JC8012P4A1
+    # model provides reset_pin (GPIO22), interrupt_pin (GPIO21),
+    # firmware, and calibrated transform/bounds — no overrides needed.
 
 # -------------------------------------------
 # Display
